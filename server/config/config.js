@@ -10,12 +10,22 @@ process.env.PORT = process.env.PORT || 3000;
 process.env.NODE_ENV = process.env.NODE_ENV || "dev";
 
 //====================
+//TOKEN EXPIRATION DATE
+//====================
+process.env.EXPIRATION_TOKEN = 60 * 60 * 24 * 60;
+
+//====================
+// ENVIORNMENT
+//====================
+process.env.SEED = process.env.EXPIRATION_SEED || "token-seed";
+
+//====================
 // DATABASE
 //====================
 let urlDB;
 if (process.env.NODE_ENV === "dev") {
     urlDB = "mongodb://localhost:27017/cafe";
 } else {
-    urlDB = process.env.MONGO_URL
+    urlDB = process.env.MONGO_URL;
 }
 process.env.URLDB = urlDB;
